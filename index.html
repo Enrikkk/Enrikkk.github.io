@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Enrique Hernández — Machine Learning Researcher</title>
+<meta name="description" content="Enrique Hernández, computer science student and machine learning researcher at GULF SCEI, University of New Orleans. Deep learning, neural operators, computer vision, and more." />
+<meta name="author" content="Enrique Hernández Noguera" />
+<!-- social link previews; og:url and og:image are finalized at deploy -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Enrique Hernández — Machine Learning Researcher" />
+<meta property="og:description" content="Computer science student and ML researcher. Deep learning, neural operators, computer vision, and more." />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23080910'/%3E%3Ctext x='50' y='72' font-family='Montserrat,Arial,sans-serif' font-size='64' font-weight='800' fill='%235468ff' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+<!-- apply saved theme before paint to avoid flash -->
+<script>(function(){try{var t=localStorage.getItem('eh-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* dark (default) */
+    --bg:#08090f; --bg2:#0d0f1c; --card-solid:#12152a; --line:rgba(255,255,255,.10);
+    --ink:#eef1fb; --muted:#9aa3c4; --dim:#6b7494; --head:#ffffff;
+    --accent:#5468ff; --accent2:#8b8bff;
+    --dot:rgba(255,255,255,.40); --globe:#aab6ff; --globe-op:.55;
+    --navbg:rgba(8,9,15,.72);
+    --glow1:rgba(70,86,255,.30); --glow2:rgba(31,40,150,.22);
+    --max:1040px;
+  }
+  html[data-theme="light"]{
+    --bg:#f4f6fc; --bg2:#ffffff; --card-solid:#ffffff; --line:rgba(20,28,70,.12);
+    --ink:#222a4d; --muted:#535b7a; --dim:#7b82a0; --head:#0e1230;
+    --accent:#3b46e0; --accent2:#4f5bff;
+    --dot:rgba(40,48,150,.28); --globe:#6a76e8; --globe-op:.5;
+    --navbg:rgba(255,255,255,.82);
+    --glow1:rgba(90,104,255,.15); --glow2:rgba(120,130,255,.09);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s;
+    background-image:
+      radial-gradient(1000px 640px at -8% -12%, var(--glow1), transparent 55%),
+      radial-gradient(760px 520px at 112% -4%, var(--glow2), transparent 52%);
+    background-attachment:fixed;}
+  a{color:var(--accent2);text-decoration:none}
+  a:hover{color:var(--head)}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;position:relative}
+
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);background:var(--navbg);border-bottom:1px solid var(--line);transition:background .25s}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px}
+  nav .brand{font-family:Montserrat,sans-serif;font-weight:800;font-size:1rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+  .navright{display:flex;align-items:center;gap:22px}
+  nav .links{display:flex;gap:24px}
+  nav .links a{color:var(--muted);font-size:.86rem;font-weight:500;letter-spacing:.02em}
+  nav .links a:hover{color:var(--head)}
+  .toggles{display:flex;align-items:center;gap:10px}
+  .lang-toggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .lang-toggle button{background:transparent;border:0;color:var(--muted);font-family:Montserrat,sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.05em;padding:5px 9px;cursor:pointer;transition:.15s}
+  .lang-toggle button.active{background:var(--accent);color:#fff}
+  .icon-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;transition:.15s}
+  .icon-btn:hover{color:var(--head);border-color:var(--accent)}
+  .icon-btn svg{width:17px;height:17px}
+  .theme-btn .ic-sun,.theme-btn .ic-moon{display:none}
+  html:not([data-theme="light"]) .theme-btn .ic-sun{display:block}
+  html[data-theme="light"] .theme-btn .ic-moon{display:block}
+
+  section{padding:56px 0;border-top:1px solid var(--line);position:relative;scroll-margin-top:70px}
+
+  /* hero */
+  .hero{position:relative;padding:92px 0 70px;overflow:hidden}
+  .portrait{position:absolute;right:0;top:54%;transform:translateY(-50%);width:342px;height:342px;z-index:1;pointer-events:none}
+  .portrait .globe{position:absolute;inset:0;width:100%;height:100%}
+  .portrait .globe g{stroke:var(--globe);stroke-opacity:var(--globe-op)}
+  .portrait img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:236px;height:236px;border-radius:50%;object-fit:cover;border:3px solid rgba(124,140,255,.75);box-shadow:0 0 60px rgba(84,104,255,.4),0 0 0 10px rgba(84,104,255,.06)}
+  .dots{position:absolute;width:120px;height:80px;background-image:radial-gradient(var(--dot) 1.3px,transparent 1.3px);background-size:20px 20px;pointer-events:none;z-index:0}
+  .dots.a{top:84px;right:340px;opacity:.9}
+  .dots.b{bottom:26px;right:24px;opacity:.85}
+  .hero .inner{position:relative;z-index:2;max-width:600px}
+  .eyebrow{font-family:Montserrat,sans-serif;color:var(--accent2);font-size:.78rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;margin:0 0 20px}
+  .hero h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:4.3rem;line-height:.98;margin:0 0 14px;letter-spacing:.005em;text-transform:uppercase;color:var(--head);text-shadow:0 2px 40px rgba(70,86,255,.25)}
+  .accent-bar{display:inline-block;width:62px;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));margin:6px 0 22px}
+  .hero .role{font-size:1.3rem;color:var(--ink);margin:0 0 4px;font-weight:300}
+  .hero .affil{color:var(--muted);font-size:.98rem;margin:0 0 24px}
+  .hero .bio{max-width:60ch;color:var(--muted);font-size:1.06rem;margin:0 0 30px}
+  .cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-weight:600;font-size:.92rem;font-family:Montserrat,sans-serif;letter-spacing:.02em;cursor:pointer}
+  .btn.primary{background:linear-gradient(120deg,var(--accent),#7a5cff);color:#fff;box-shadow:0 10px 30px rgba(84,104,255,.35)}
+  .btn.primary:hover{filter:brightness(1.1);color:#fff}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink);background:transparent}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--head)}
+  .cv-dd{position:relative;display:inline-block}
+  .cv-toggle{border:none}
+  .cv-toggle::after{content:"\25BE";font-size:.8em;opacity:.85}
+  .cv-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:100%;background:var(--card-solid);border:1px solid var(--line);border-radius:10px;padding:6px;display:none;flex-direction:column;gap:2px;z-index:30;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+  .cv-dd.open .cv-menu{display:flex}
+  .cv-menu a{display:block;padding:9px 16px;border-radius:7px;color:var(--ink);font-family:Montserrat,sans-serif;font-weight:600;font-size:.86rem;white-space:nowrap}
+  .cv-menu a:hover{background:rgba(84,104,255,.12);color:var(--head)}
+  .areas{display:flex;gap:10px;flex-wrap:wrap}
+  .areas .chip{border:1px solid var(--line);background:rgba(84,104,255,.06);border-radius:9px;padding:9px 15px;font-size:.82rem;color:var(--muted);font-weight:500}
+
+  .kicker{font-family:Montserrat,sans-serif;font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;margin:0 0 28px;color:var(--head);display:flex;align-items:center;gap:12px}
+  .kicker::before{content:"";width:26px;height:3px;border-radius:2px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+
+  /* clickable feature card */
+  .feature{position:relative;display:grid;grid-template-columns:200px 1fr;gap:28px;background:var(--card-solid);border:1px solid var(--line);border-radius:14px;padding:26px;align-items:center;cursor:pointer;transition:.18s}
+  .feature:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 16px 40px rgba(40,48,150,.30)}
+  .feature + .feature{margin-top:18px}
+  .feature .cardlink{position:absolute;inset:0;z-index:1;border-radius:14px}
+  .feature .cover{height:150px;border-radius:10px;background:linear-gradient(135deg,#2730a8,#0c1030);display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-weight:800;color:#c3ccff;font-size:1.15rem;letter-spacing:.04em;border:1px solid var(--line);text-transform:uppercase}
+  .feature .ttl{font-size:1.22rem;font-weight:600;margin:0 0 6px;line-height:1.3;color:var(--head)}
+  .feature:hover .ttl{color:var(--accent2)}
+  .feature .auth{color:var(--muted);font-size:.95rem;margin:0 0 4px}
+  .feature .auth b{color:var(--head)}
+  .feature .ven{color:var(--dim);font-size:.9rem;margin:0 0 14px}
+  .feature .desc{color:var(--muted);font-size:.98rem;margin:0 0 16px}
+  .tagbtns a{position:relative;z-index:2;display:inline-block;font-size:.8rem;font-weight:600;font-family:Montserrat,sans-serif;padding:6px 16px;border:1px solid var(--line);border-radius:8px;margin-right:8px;color:var(--muted);background:rgba(120,130,160,.06);letter-spacing:.02em}
+  .tagbtns a:hover{border-color:var(--accent);color:var(--head)}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .pcard{background:var(--card-solid);border:1px solid var(--line);border-radius:12px;padding:22px;transition:.18s;display:block}
+  .pcard:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 16px 40px rgba(40,48,150,.30)}
+  .pcard .pt{font-family:Montserrat,sans-serif;font-size:1.05rem;font-weight:700;color:var(--head);margin:0 0 8px}
+  .pcard p{color:var(--muted);font-size:.92rem;margin:0 0 14px}
+  .pcard .tags{display:flex;gap:7px;flex-wrap:wrap}
+  .pcard .tg{font-size:.72rem;color:var(--accent2);background:rgba(84,104,255,.10);border:1px solid rgba(84,104,255,.22);border-radius:6px;padding:2px 9px;font-family:Montserrat,sans-serif;font-weight:500}
+
+  .news{display:flex;flex-direction:column;gap:14px}
+  .news .row{display:flex;gap:20px;align-items:baseline}
+  .news .d{flex:0 0 96px;color:var(--accent2);font-size:.84rem;font-weight:700;font-family:Montserrat,sans-serif}
+  .news .x{color:var(--muted)}.news .x b{color:var(--head);font-weight:500}
+
+  .contact{text-align:center;padding:66px 0 30px;position:relative;border-top:1px solid var(--line)}
+  .contact h3{font-family:Montserrat,sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:1.8rem;margin:0 0 10px;color:var(--head)}
+  .contact p{color:var(--muted);margin:0 0 22px}
+  footer{text-align:center;color:var(--dim);font-size:.83rem;padding:24px 0 50px;border-top:1px solid var(--line)}
+
+  @media(max-width:720px){
+    .hero{padding:56px 0 44px}.hero h1{font-size:2.7rem}
+    .portrait{position:static;transform:none;margin:0 auto 26px;width:210px;height:210px}
+    .portrait img{width:152px;height:152px}
+    .dots{display:none}
+    .feature{grid-template-columns:1fr}.feature .cover{height:110px}
+    .grid{grid-template-columns:1fr}
+    nav .links{display:none}
+    .navright{gap:12px}
+  }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="brand">Enrique Hernández</div>
+  <div class="navright">
+    <div class="links">
+      <a href="#work" data-k="navWork">Work</a>
+      <a href="#projects" data-k="navProjects">Projects</a>
+      <a href="#news" data-k="navNews">News</a>
+      <a href="#contact" data-k="navContact">Contact</a>
+    </div>
+    <div class="toggles">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button data-setlang="en" aria-label="English">EN</button>
+        <button data-setlang="es" aria-label="Español">ES</button>
+      </div>
+      <button class="icon-btn theme-btn" id="themeBtn" aria-label="Toggle light/dark theme">
+        <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1.5 12h3M19.5 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </div>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <!-- portrait framed by a wireframe globe, echoing the LinkedIn banner -->
+  <div class="portrait">
+  <svg class="globe" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#aab6ff" stroke-opacity=".55" stroke-width="0.8">
+      <circle cx="100" cy="100" r="92"/>
+      <ellipse cx="100" cy="100" rx="92" ry="30"/>
+      <ellipse cx="100" cy="100" rx="92" ry="60"/>
+      <ellipse cx="100" cy="100" rx="30" ry="92"/>
+      <ellipse cx="100" cy="100" rx="60" ry="92"/>
+      <line x1="8" y1="100" x2="192" y2="100"/>
+      <line x1="100" y1="8" x2="100" y2="192"/>
+      <line x1="35" y1="35" x2="165" y2="165"/>
+      <line x1="165" y1="35" x2="35" y2="165"/>
+    </g>
+  </svg>
+  <img src="profile.jpg" onerror="this.onerror=null;this.src='https://github.com/Enrikkk.png'" alt="Enrique Hernández" />
+  </div>
+  <div class="dots a"></div>
+  <div class="dots b"></div>
+
+  <div class="inner">
+    <p class="eyebrow" data-k="eyebrow">Deep Learning · Research</p>
+    <h1>Enrique<br><span class="l2">Hernández</span></h1>
+    <span class="accent-bar"></span>
+    <p class="role" data-k="role">Machine Learning Researcher</p>
+    <p class="affil" data-k="affil">Undergraduate Researcher, GULF SCEI · University of New Orleans &nbsp;|&nbsp; BSc Computer Science, Universidad de Murcia</p>
+    <p class="bio" data-k="bio">I'm a computer science student and machine learning researcher. Most of my time goes into building models and running experiments, and I care as much about the engineering as the science. My published work spans neural operators for scientific computing and computer vision for structural inspection. I've also built projects in game AI and procedural generation.</p>
+    <div class="cta">
+      <div class="cv-dd">
+        <button class="btn primary cv-toggle" type="button" aria-haspopup="true" aria-expanded="false" data-k="ctaCV">↓ Download CV</button>
+        <div class="cv-menu" role="menu">
+          <a href="cv.pdf" target="_blank" rel="noopener" role="menuitem">English</a>
+          <a href="cv-es.pdf" target="_blank" rel="noopener" role="menuitem">Español</a>
+        </div>
+      </div>
+      <a class="btn ghost" href="#contact" data-k="ctaContact">Get in touch</a>
+    </div>
+    <div class="areas">
+      <div class="chip" data-k="chip1">Computer Vision</div>
+      <div class="chip" data-k="chip2">Neural Operators</div>
+      <div class="chip" data-k="chip3">NLP</div>
+      <div class="chip" data-k="chip4">Agentic Systems</div>
+    </div>
+  </div>
+</div></header>
+
+<section id="work"><div class="wrap">
+  <h2 class="kicker" data-k="kWork">Selected work</h2>
+  <div class="feature">
+    <a class="cardlink" href="https://arxiv.org/abs/2605.09096" aria-label="Read SpectraNet on arXiv"></a>
+    <div class="cover">SpectraNet</div>
+    <div>
+      <p class="ttl">Bridging Spectral Operator Learning and U-Net Hierarchies: SpectraNet for Stable Autoregressive PDE Surrogates</p>
+      <p class="auth"><b>Enrique Hernández Noguera</b>, Md Meftahul Ferdaus, Elias Ioup, Mahdi Abdelguerfi, Julian Simeonov</p>
+      <p class="ven" data-k="featVen">arXiv preprint · May 2026</p>
+      <p class="desc" data-k="featDesc">A spectral U-Net neural operator for autoregressive PDE surrogates. It stays bounded over long rollouts where other methods drift apart, and it trains on consumer-grade hardware.</p>
+      <div class="tagbtns">
+        <a href="https://arxiv.org/abs/2605.09096">arXiv</a>
+        <a href="https://arxiv.org/pdf/2605.09096">PDF</a>
+        <a href="https://github.com/Enrikkk/spectranet" data-k="btnCode">Code</a>
+      </div>
+    </div>
+  </div>
+  <div class="feature">
+    <a class="cardlink" href="https://arxiv.org/abs/2604.18745" aria-label="Read DeltaSeg on arXiv"></a>
+    <div class="cover">DeltaSeg</div>
+    <div>
+      <p class="ttl">DeltaSeg: Tiered Attention and Deep Delta Learning for Multi-Class Structural Defect Segmentation</p>
+      <p class="auth"><b>Enrique Hernández Noguera</b>, Md Meftahul Ferdaus, Elias Ioup, Mahdi Abdelguerfi</p>
+      <p class="ven" data-k="featVen2">arXiv preprint · April 2026</p>
+      <p class="desc" data-k="featDesc2">A U-Net for multi-class segmentation of structural defects. Its Deep Delta Attention in the skip connections, together with channel and coordinate attention, outperforms 12 architectures across two benchmarks.</p>
+      <div class="tagbtns">
+        <a href="https://arxiv.org/abs/2604.18745">arXiv</a>
+        <a href="https://arxiv.org/pdf/2604.18745">PDF</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2 class="kicker" data-k="kProjects">Projects</h2>
+  <div class="grid">
+    <a class="pcard" href="https://github.com/Enrikkk/spectranet">
+      <p class="pt">SpectraNet</p>
+      <p data-k="p1">A spectral U-Net that learns PDE solution operators. Stable on long Navier–Stokes rollouts, using 2.3× fewer parameters than a standard FNO.</p>
+      <div class="tags"><span class="tg">PyTorch</span><span class="tg">neural-operator</span><span class="tg">SciML</span></div>
+    </a>
+    <a class="pcard" href="https://github.com/Enrikkk/Defend-the-Lab---Deep-Learning-Web-Developed-Learning-Game">
+      <p class="pt">Defend the Lab</p>
+      <p data-k="p2">An educational game built around a hand-trained MobileNetV2 OCR model. Players beat viruses by writing binary, octal and hex answers on their phone, read live by the model.</p>
+      <div class="tags"><span class="tg">PyTorch</span><span class="tg">OCR</span><span class="tg">Phaser 3</span></div>
+    </a>
+    <a class="pcard" href="https://github.com/Enrikkk/AIPhobia">
+      <p class="pt">AIPhobia</p>
+      <p data-k="p3">A first-person Unity ghost-hunting game. The AI opponent runs on a finite state machine, with vision, hearing, pursuit and retreat.</p>
+      <div class="tags"><span class="tg">Unity</span><span class="tg">C#</span><span class="tg">game-AI</span></div>
+    </a>
+    <a class="pcard" href="https://github.com/Enrikkk/AI-Terrain-Generation">
+      <p class="pt">AI Terrain Generation</p>
+      <p data-k="p4">Procedurally generated Unity worlds: Perlin-noise terrain, marching-cubes caves, cellular automata and flock steering.</p>
+      <div class="tags"><span class="tg">Unity</span><span class="tg">procedural</span><span class="tg">C#</span></div>
+    </a>
+  </div>
+</div></section>
+
+<section id="news"><div class="wrap">
+  <h2 class="kicker" data-k="kNews">Recent</h2>
+  <div class="news">
+    <div class="row"><div class="d" data-k="n1d">May 2026</div><div class="x" data-k="n1">Posted the <b>SpectraNet</b> preprint on arXiv.</div></div>
+    <div class="row"><div class="d" data-k="n2d">May 2026</div><div class="x" data-k="n2">Started full-time summer research at <b>GULF SCEI</b>, University of New Orleans.</div></div>
+    <div class="row"><div class="d" data-k="n5d">April 2026</div><div class="x" data-k="n5">Posted the <b>DeltaSeg</b> preprint on arXiv.</div></div>
+    <div class="row"><div class="d" data-k="n3d">March 2026</div><div class="x" data-k="n3">Won first place at the <b>BrainJam Hackathon</b>.</div></div>
+    <div class="row"><div class="d" data-k="n4d">January 2026</div><div class="x" data-k="n4">Received the <b>Tolmas Research Scholarship</b>.</div></div>
+  </div>
+</div></section>
+
+<div class="contact" id="contact"><div class="wrap">
+  <h3 data-k="cH">Get in touch</h3>
+  <p data-k="cP">I'm always happy to talk about research or graduate study.</p>
+  <a class="btn primary" href="mailto:enriquehernandeznoguera@gmail.com">enriquehernandeznoguera@gmail.com</a>
+  <div class="areas" style="justify-content:center;margin-top:24px">
+    <a class="chip" href="https://scholar.google.com/citations?user=gbOcSckAAAAJ&hl=es" style="color:var(--muted)">Google Scholar</a>
+    <a class="chip" href="https://github.com/Enrikkk" style="color:var(--muted)">GitHub</a>
+    <a class="chip" href="https://www.linkedin.com/in/enrique-hernandez-noguera/" style="color:var(--muted)">LinkedIn</a>
+  </div>
+</div></div>
+
+<footer>© 2026 Enrique Hernández Noguera</footer>
+
+<script>
+  // ---- theme toggle ----
+  document.getElementById('themeBtn').addEventListener('click',function(){
+    var next=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    if(next==='dark')document.documentElement.removeAttribute('data-theme');
+    else document.documentElement.setAttribute('data-theme','light');
+    try{localStorage.setItem('eh-theme',next);}catch(e){}
+  });
+
+  // ---- CV download dropdown (English / Español) ----
+  (function(){
+    var dd=document.querySelector('.cv-dd');
+    if(!dd)return;
+    var tog=dd.querySelector('.cv-toggle');
+    tog.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var open=dd.classList.toggle('open');tog.setAttribute('aria-expanded',open?'true':'false');});
+    document.addEventListener('click',function(e){if(!dd.contains(e.target)){dd.classList.remove('open');tog.setAttribute('aria-expanded','false');}});
+    dd.querySelectorAll('.cv-menu a').forEach(function(a){a.addEventListener('click',function(){dd.classList.remove('open');tog.setAttribute('aria-expanded','false');});});
+  })();
+
+  // ---- language toggle (EN / ES) ----
+  var T={
+    en:{
+      navWork:"Work", navProjects:"Projects", navNews:"News", navContact:"Contact",
+      eyebrow:"Deep Learning · Research",
+      role:"Machine Learning Researcher",
+      affil:"Undergraduate Researcher, GULF SCEI · University of New Orleans &nbsp;|&nbsp; BSc Computer Science, Universidad de Murcia",
+      bio:"I'm a computer science student and machine learning researcher. Most of my time goes into building models and running experiments, and I care as much about the engineering as the science. My published work spans neural operators for scientific computing and computer vision for structural inspection. I've also built projects in game AI and procedural generation.",
+      ctaCV:"↓ Download CV", ctaContact:"Get in touch",
+      chip1:"Computer Vision", chip2:"Neural Operators", chip3:"NLP", chip4:"Agentic Systems",
+      kWork:"Selected work", kProjects:"Projects", kNews:"Recent",
+      featVen:"arXiv preprint · May 2026",
+      featDesc:"A spectral U-Net neural operator for autoregressive PDE surrogates. It stays bounded over long rollouts where other methods drift apart, and it trains on consumer-grade hardware.",
+      featVen2:"arXiv preprint · April 2026",
+      featDesc2:"A U-Net for multi-class segmentation of structural defects. Its Deep Delta Attention in the skip connections, together with channel and coordinate attention, outperforms 12 architectures across two benchmarks.",
+      btnCode:"Code",
+      p1:"A spectral U-Net that learns PDE solution operators. Stable on long Navier–Stokes rollouts, using 2.3× fewer parameters than a standard FNO.",
+      p2:"An educational game built around a hand-trained MobileNetV2 OCR model. Players beat viruses by writing binary, octal and hex answers on their phone, read live by the model.",
+      p3:"A first-person Unity ghost-hunting game. The AI opponent runs on a finite state machine, with vision, hearing, pursuit and retreat.",
+      p4:"Procedurally generated Unity worlds: Perlin-noise terrain, marching-cubes caves, cellular automata and flock steering.",
+      n1d:"May 2026", n1:"Posted the <b>SpectraNet</b> preprint on arXiv.",
+      n2d:"May 2026", n2:"Started full-time summer research at <b>GULF SCEI</b>, University of New Orleans.",
+      n5d:"April 2026", n5:"Posted the <b>DeltaSeg</b> preprint on arXiv.",
+      n3d:"March 2026", n3:"Won first place at the <b>BrainJam Hackathon</b>.",
+      n4d:"January 2026", n4:"Received the <b>Tolmas Research Scholarship</b>.",
+      cH:"Get in touch", cP:"I'm always happy to talk about research or graduate study."
+    },
+    es:{
+      navWork:"Trabajo", navProjects:"Proyectos", navNews:"Novedades", navContact:"Contacto",
+      eyebrow:"Deep Learning · Investigación",
+      role:"Investigador en Machine Learning",
+      affil:"Investigador de grado, GULF SCEI · University of New Orleans &nbsp;|&nbsp; Grado en Ingeniería Informática, Universidad de Murcia",
+      bio:"Soy estudiante de informática e investigador en machine learning. Dedico la mayor parte del tiempo a construir modelos y lanzar experimentos, y me importa tanto la ingeniería como la ciencia. Mi trabajo publicado abarca operadores neuronales para computación científica y visión por computador para inspección estructural. También he desarrollado proyectos de IA para videojuegos y generación procedural.",
+      ctaCV:"↓ Descargar CV", ctaContact:"Hablemos",
+      chip1:"Visión por Computador", chip2:"Operadores Neuronales", chip3:"PLN", chip4:"Sistemas Agénticos",
+      kWork:"Trabajo destacado", kProjects:"Proyectos", kNews:"Novedades",
+      featVen:"preprint en arXiv · Mayo 2026",
+      featDesc:"Un operador neuronal tipo U-Net espectral para sustitutos autoregresivos de EDPs. Se mantiene acotado en horizontes largos donde otros métodos divergen, y entrena en hardware de consumo.",
+      featVen2:"preprint en arXiv · Abril 2026",
+      featDesc2:"Una U-Net para segmentación multiclase de defectos estructurales. Su mecanismo Deep Delta Attention en las conexiones residuales, junto con atención de canal y de coordenadas, supera a 12 arquitecturas en dos conjuntos de datos.",
+      btnCode:"Código",
+      p1:"Una U-Net espectral que aprende operadores de solución de EDPs. Estable en horizontes largos de Navier–Stokes, con 2,3× menos parámetros que una FNO estándar.",
+      p2:"Un juego educativo construido sobre un modelo OCR MobileNetV2 entrenado a mano. Los jugadores derrotan virus escribiendo respuestas en binario, octal y hexadecimal en el móvil, leídas en directo por el modelo.",
+      p3:"Un juego de fantasmas en primera persona en Unity. El oponente con IA funciona con una máquina de estados finitos: visión, oído, persecución y huida.",
+      p4:"Mundos en Unity generados proceduralmente: terreno con ruido Perlin, cuevas con marching cubes, autómatas celulares y comportamiento de bandada.",
+      n1d:"Mayo 2026", n1:"Publiqué el preprint de <b>SpectraNet</b> en arXiv.",
+      n2d:"Mayo 2026", n2:"Empecé la investigación de verano a tiempo completo en <b>GULF SCEI</b>, University of New Orleans.",
+      n5d:"Abril 2026", n5:"Publiqué el preprint de <b>DeltaSeg</b> en arXiv.",
+      n3d:"Marzo 2026", n3:"Gané el primer puesto en el <b>BrainJam Hackathon</b>.",
+      n4d:"Enero 2026", n4:"Recibí la <b>Beca de Investigación Tolmas</b>.",
+      cH:"Hablemos", cP:"Siempre me alegra hablar sobre investigación o estudios de posgrado."
+    }
+  };
+  function applyLang(lang){
+    if(!T[lang])lang='en';
+    document.documentElement.lang=lang;
+    document.querySelectorAll('[data-k]').forEach(function(el){
+      var k=el.getAttribute('data-k');
+      if(T[lang][k]!=null)el.innerHTML=T[lang][k];
+    });
+    document.querySelectorAll('.lang-toggle button').forEach(function(b){
+      b.classList.toggle('active',b.getAttribute('data-setlang')===lang);
+    });
+    try{localStorage.setItem('eh-lang',lang);}catch(e){}
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.getAttribute('data-setlang'));});
+  });
+  (function(){
+    var saved;try{saved=localStorage.getItem('eh-lang');}catch(e){}
+    applyLang(saved||'en');
+  })();
+</script>
+</body>
+</html>
